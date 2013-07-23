@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Update me GitHub: https://github.com/phillihpz/joomla_loadmoduleparams
+-->
+<extension version="1.6" type="plugin" group="content" method="upgrade">
+	<name>Content - Load Module with Params</name>
+	<author>Phillihp Harmon</author>
+	<creationDate>2013.07.23</creationDate>
+	<copyright>Copyright (C) 2013 Xelltech, Inc All rights reserved.</copyright>
+	<license>GNU</license>
+	<authorEmail>phillihpz@gmail.com</authorEmail>
+	<authorUrl>www.phillihp.com</authorUrl>
+	<version>1.0</version>
+	<description>
+	   Embed and Load a Module in an article, with parameters. Ability to add unlimited modules that are the same. Syntax would be {pmod [module_name|queryParams]}, for instance {pmod [module_name|content_id=45398534&amp;type=Normal]}.
+	</description>
+	<files>		
+		<filename plugin="loadmoduleparams">loadmoduleparams.php</filename>	
+		<filename plugin="loadmoduleparams">index.html</filename>		
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			</fieldset>
+		</fields>
+	</config>	
+</extension>
