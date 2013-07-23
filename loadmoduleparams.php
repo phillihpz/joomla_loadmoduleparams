@@ -69,7 +69,8 @@ class plgContentLoadModuleParams extends JPlugin{
 		foreach($module_params as $key=>$item) {
 			$curParams[$key] = $item;
 		}
-		$module->params = json_encode($curParams);
+		$curParams['moduleinclude'] = true;
+		$module->params = json_encode($curParams); 
 		
 		$contents = $renderer->render($module, $module_params);
 		
