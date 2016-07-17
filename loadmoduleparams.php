@@ -41,8 +41,9 @@ class plgContentLoadModuleParams extends JPlugin{
 			$module_name	= $paramsarray[0];
 			$module_params	= Array();
 			if(isset($paramsarray[1])){
-				parse_str($paramsarray[1], $module_params);
-			}			
+				$raw = str_replace("&amp;", "&", $paramsarray[1]);
+				parse_str($raw, $module_params);
+			}
 			
 			$module_output = $this->load_module($module_name, $module_params);
 			$article->text = preg_replace($regex, $module_output, $article->text, 1);
@@ -51,14 +52,14 @@ class plgContentLoadModuleParams extends JPlugin{
 	
 	protected function load_module($module_name, $module_params) {
 		
-		$document = &JFactory::getDocument();
+		$document = JFactory::getDocument();
 		$renderer = $document->loadRenderer('module');
 		
 		$contents = '';
 		
 		//get module as an object
 		$database = JFactory::getDBO();
-		$database->setQuery("SELECT * FROM #__modules WHERE module='$module_name'");
+		$database->setQuery("SELECT * FROM #__modules WHERE title='$module_name'");
 		$modules = $database->loadObjectList();
 		$module = $modules[0];
 		
